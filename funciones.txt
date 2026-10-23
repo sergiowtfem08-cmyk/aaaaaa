@@ -1,0 +1,17 @@
+raze.dll — funciones identificadas
+===================================
+
+No se confirmó ninguna función nativa relevante con dirección de entrada y comportamiento descompilado.
+
+Sitios de referencia confirmados (no equivalen a funciones identificadas):
+- 0x1000b56f — instrucción que Ghidra refiere a la cadena bKeyEnableGlow (0x10283146). Función contenedora y semántica no confirmadas.
+- 0x1000b586 — instrucción que Ghidra refiere a bKeyEnableGlow. Función contenedora y semántica no confirmadas.
+- 0x1010ecbb — instrucción que Ghidra refiere a bKeyEnableGlow. Función contenedora y semántica no confirmadas.
+- 0x10116974 — instrucción que Ghidra refiere al texto Enable glow all (0x10196f30). Función contenedora y semántica no confirmadas.
+
+Hipótesis para investigación, no hallazgos funcionales:
+- Las etiquetas bKeyEnableGlow y Enable glow all podrían estar conectadas a una opción de menú/tecla para glow. Hace falta descompilar sus funciones contenedoras y seguir sus llamadas/datos para verificarlo.
+- Los nombres fColorGlowSurvivor y Glow colors by health status podrían estar relacionados con selección de color. No se obtuvo evidencia de la rutina que aplica esos valores.
+- Los nombres de hooks Direct3D encontrados podrían corresponder a integración gráfica, pero no se confirmó ningún hook instalado ni callback nativo.
+
+Las direcciones son direcciones virtuales observadas por Ghidra en el PE cargado. No se calcularon offsets de archivo.

@@ -1,0 +1,27 @@
+raze.dll — imports y referencias relevantes
+===========================================
+
+Imports identificados en el inventario de procedimientos de Ghidra:
+
+USER32.DLL
+- GetAsyncKeyState — dirección externa Ghidra EXTERNAL:0x6; símbolo/string observado en 0x1029375c.
+- GetKeyState — dirección externa Ghidra EXTERNAL:0xd; símbolo/string observado en 0x102937da.
+- SetWindowLongA — dirección externa Ghidra EXTERNAL:0x1c; símbolo/string observado en 0x102938d0.
+- CallWindowProcA — EXTERNAL:0x1.
+- FindWindowA — EXTERNAL:0x5.
+- GetForegroundWindow — EXTERNAL:0xb.
+
+KERNEL32.DLL
+- CreateThread — EXTERNAL:0x24; símbolo/string observado en 0x1029395c.
+- GetProcAddress — EXTERNAL:0x39; símbolo/string observado en 0x10293b12.
+- VirtualProtect — EXTERNAL:0x5c; símbolo/string observado en 0x10293da4.
+- VirtualAlloc — EXTERNAL:0x5a.
+- FlushInstructionCache — EXTERNAL:0x2a.
+- SuspendThread / ResumeThread — EXTERNAL:0x57 / EXTERNAL:0x52.
+
+Referencias gráficas encontradas como cadenas, no verificadas aquí como imports PE:
+- D3DXCreateTextureFromFileInMemoryEx en 0x10294cfc.
+- d3dx9_43.dll en 0x102952cf.
+- El texto Left 4 Dead 2 - Direct3D 9 en 0x1028cc99.
+
+La búsqueda de nombres no encontró ReadProcessMemory ni WriteProcessMemory. Esto no descarta lectura/escritura indirecta, accesos mediante punteros ni resolución dinámica de APIs. Los símbolos externos se listaron como imports; no se recuperaron sus llamadores por la limitación de las consultas de referencias.

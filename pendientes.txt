@@ -1,0 +1,15 @@
+Pendientes y siguiente comparación
+==================================
+
+1. Reabrir la DLL con REA/Ghidra y resolver por dirección el procedimiento contenedor de 0x1000b56f, 0x1000b586, 0x1010ecbb y 0x10116974; confirmar límites de función antes de describirlos.
+2. Descompilar esos procedimientos de forma individual; revisar pseudocódigo, llamadas, referencias entrantes/salientes, ramas y lecturas/escrituras de memoria relevantes.
+3. Buscar llamadores de USER32.DLL::GetAsyncKeyState/GetKeyState y seguir los datos hasta bKeyEnableGlow o Enable glow all para comprobar o refutar el vínculo con la tecla.
+4. Revisar referencias y usos de fColorGlowSurvivor (0x1028503e), bGlowSurvivor (0x10285069), Glow colors by health status (0x10284071), bNoDepthPlayers (0x10284384) y dev/glow_color (0x102853c8).
+5. Verificar si D3DXCreateTextureFromFileInMemoryEx y d3dx9_43.dll son imports, resolución dinámica o solo cadenas; examinar posibles referencias a interfaces, vtables y callbacks Direct3D.
+6. Comparar con el código fuente del proyecto buscando esos nombres de opciones, colores, hooks y APIs. El repositorio fuente no se identificó durante esta tarea; usar coincidencias y luego comparar flujo y valores, no solo nombres.
+7. Si se necesita una sesión reproducible, exportar la evidencia REA o guardar explícitamente un snapshot de análisis. No existe un proyecto Ghidra persistente de esta ejecución.
+
+Limitaciones registradas:
+- list_names completo devolvió resource_constraint por superar el presupuesto de respuesta MCP: "The operation completed, but its complete MCP response exceeds the stdio response budget. The analysis result was not truncated."
+- Las consultas de dossiers/referencias estuvieron activas varios minutos y se interrumpieron; no produjeron resultados completos ni un error específico del proveedor.
+- Las cadenas y referencias observadas son evidencia estática. No prueban comportamiento durante ejecución.
